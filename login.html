@@ -178,16 +178,16 @@
   <div class="auth-container">
     
     <div id="loginView">
-      <h2 style="user-select: none; -webkit-user-select: none; cursor: default;">Login to Study Timer</h2>
-      <div class="error-msg" id="loginError" style="user-select: none; -webkit-user-select: none; cursor: default;">Invalid Email or Password!</div>
+      <h2 >Login to Study Timer</h2>
+      <div class="error-msg" id="loginError">Invalid Email or Password!</div>
      
       <div class="form-group left-align-input">
-        <label style="user-select: none; -webkit-user-select: none; cursor: default;">Email Address</label>
+        <label >Email Address</label>
         <input type="email" id="loginEmail" placeholder="example@gmail.com">
       </div>
      
       <div class="form-group left-align-input">
-        <label style="user-select: none; -webkit-user-select: none; cursor: default;">Password</label>
+        <label >Password</label>
         <div class="password-container">
           <input type="password" id="loginPassword" placeholder="Enter your Password">
           <button type="button" class="toggle-password" onclick="togglePasswordVisibility('loginPassword', this)">Show</button>
@@ -197,29 +197,29 @@
       <button id="loginBtn" onclick="handleLogin()">Login</button>
       <div id="loginLoading" class="loading-spinner">Verifying account...</div>
      
-      <div class="switch-text" style="user-select: none; -webkit-user-select: none; cursor: default;">
+      <div class="switch-text" >
         Don't have an account? <span onclick="toggleAuthViews()">Register</span>
       </div>
     </div>
 
 
     <div id="signUpView" style="display: none;">
-      <h2 style="user-select: none; -webkit-user-select: none; cursor: default;">Register Study Account</h2>
-      <div class="error-msg" id="signUpError style="user-select: none; -webkit-user-select: none; cursor: default;"">This email is already registered!</div>
+      <h2>Register Study Account</h2>
+      <div class="error-msg" id="signUpError">This email is already registered!</div>
      
       <div id="registerInputs">
         <div class="form-group left-align-input">
-          <label style="user-select: none; -webkit-user-select: none; cursor: default;">Full Name</label>
+          <label >Full Name</label>
           <input type="text" id="signUpName" placeholder="Enter Username/Name">
         </div>
 
         <div class="form-group left-align-input">
-          <label style="user-select: none; -webkit-user-select: none; cursor: default;">Email Address</label>
+          <label>Email Address</label>
           <input type="email" id="signUpEmail" placeholder="example@gmail.com">
         </div>
        
         <div class="form-group left-align-input">
-          <label style="user-select: none; -webkit-user-select: none; cursor: default;">Password</label>
+          <label >Password</label>
           <div class="password-container">
             <input type="password" id="signUpPassword" placeholder="Create Password">
             <button type="button" class="toggle-password" onclick="togglePasswordVisibility('signUpPassword', this)">Show</button>
@@ -228,31 +228,31 @@
         <button id="signUpBtn" onclick="sendVerificationOTP()">Send Verification OTP</button>
       </div>
       
-      <div id="signUpLoading" class="loading-spinner" style="user-select: none; -webkit-user-select: none; cursor: default;">Processing...</div>
+      <div id="signUpLoading" class="loading-spinner" >Processing...</div>
      
-      <div class="switch-text" style="user-select: none; -webkit-user-select: none; cursor: default;">
+      <div class="switch-text" >
         Already have an account? <span onclick="toggleAuthViews()">Login</span>
       </div>
     </div>
 
 
     <div id="otpView" style="display: none;">
-      <h2 style="user-select: none; -webkit-user-select: none; cursor: default;">Verify Your Email</h2>
-      <p class="subtitle" style="user-select: none; -webkit-user-select: none; cursor: default;">We have sent a 6-digit secure verification code to your Gmail address. Please check your inbox.</p>
+      <h2 >Verify Your Email</h2>
+      <p class="subtitle">We have sent a 6-digit secure verification code to your Gmail address. Please check your inbox.</p>
       
-      <div class="success-msg" id="otpSuccess" style="display: block;" style="user-select: none; -webkit-user-select: none; cursor: default;">OTP Sent Successfully!</div>
-      <div class="error-msg" id="otpError" style="user-select: none; -webkit-user-select: none; cursor: default;">Wrong OTP! Please try again.</div>
+      <div class="success-msg" id="otpSuccess" style="display: block;" >OTP Sent Successfully!</div>
+      <div class="error-msg" id="otpError" >Wrong OTP! Please try again.</div>
 
       <div class="form-group">
         <label>Enter 6-Digit Code</label>
         <input type="text" id="otpInput" class="otp-display-input" placeholder="000000" maxlength="6">
       </div>
       
-      <button id="verifyOtpBtn" onclick="verifyOTPAndRegister()" style="user-select: none; -webkit-user-select: none; cursor: default;">Verify & Create Account</button>
-      <div id="otpLoading" class="loading-spinner" style="user-select: none; -webkit-user-select: none; cursor: default;">Verifying OTP...</div>
+      <button id="verifyOtpBtn" onclick="verifyOTPAndRegister()" >Verify & Create Account</button>
+      <div id="otpLoading" class="loading-spinner" >Verifying OTP...</div>
 
-      <div class="switch-text" style="user-select: none; -webkit-user-select: none; cursor: default;">
-        Entered wrong email? <span onclick="backToRegister()" style="user-select: none; -webkit-user-select: none; cursor: default;">Go Back</span>
+      <div class="switch-text" >
+        Entered wrong email? <span onclick="backToRegister()" >Go Back</span>
       </div>
     </div>
 
