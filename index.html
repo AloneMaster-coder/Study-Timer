@@ -389,7 +389,6 @@
       <div class="panel-box">
         <h3 style="user-select: none; -webkit-user-select: none; cursor: default;">
           Study Logs History
-          <button class="clear-btn" onclick="clearLogs()"style="user-select: none; -webkit-user-select: none; cursor: default;">Clear All</button>
         </h3>
         <ul id="logList" class="log-list"></ul>
       </div>
@@ -682,39 +681,20 @@
             setTimeout(loadLogs, 1000); // Thodi der baad refresh
         });
 
-    // 🧹 CLEAR ALL LOGS (Direct Delete)
     // 🗑️ PARTICULAR LOG DELETE
     function deleteLog(startTime, date) {
-      // SheetDB ka sahi delete syntax use karte hain
       fetch(`https://sheetdb.io/api/v1/s11fx2no90dx0/StartTime/${encodeURIComponent(startTime)}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       })
       .then(response => response.json())
       .then(data => {
-        loadLogs(); // Refresh
+        loadLogs(); 
       })
       .catch(error => {
         console.error("Delete Error:", error);
         loadLogs();
       });
-    }
-
-    // 🧹 CLEAR ALL LOGS (Bulk Delete via URL)
-    function clearLogs() {
-        // SheetDB bulk delete ka sabse safe tarika
-        fetch(`https://sheetdb.io/api/v1/s11fx2no90dx0/search?UserAccount=${encodeURIComponent(activeUser)}`, {
-            method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Delete request ke baad thoda wait karke refresh karein
-            setTimeout(() => { loadLogs(); }, 1000);
-        })
-        .catch(error => {
-            console.error("Clear All Error:", error);
-            loadLogs();
-        });
     }
     
 
