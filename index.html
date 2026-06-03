@@ -570,7 +570,6 @@
       historyList.innerHTML = ""; 
     }
 
-    // 🔴 NOTIFICATION BHI HATA DIYA AUR CHUPCHAP BACKGROUND MEIN SAVE KAR DIYA
     function manuallySaveLog() {
       const totalStudyTime = running ? (Date.now() - startTime) : savedTime;
       if (totalStudyTime > 1000 && studySessionStartClock !== null) {
@@ -579,7 +578,6 @@
       }
     }
 
-    // 🟢 ONLINE EXCEL SAVE FUNCTION (ALERT REMOVED)
     function saveLog(start, end, duration) {
       const logData = {
         data: [{
@@ -592,7 +590,6 @@
         }]
       };
 
-      // ⚠️ APNA SHEETDB URL NEECHE 'YOUR_API_URL' KI JAGAH REPLACE KAREIN
       fetch('https://sheetdb.io/api/v1/s11fx2no90dx0', {
         method: 'POST',
         headers: {
@@ -608,7 +605,6 @@
       .catch(error => console.error("Error to saving...", error));
     }
 
-    // 🟢 ONLINE EXCEL FETCH FUNCTION (DELETE BUTTON KE SAATH)
     function loadLogs() {
       const logList = document.getElementById("logList");
       logList.innerHTML = "<li class='log-item'>Loading history...</li>";
@@ -627,7 +623,6 @@
           return;
         }
 
-        // Hamein 'id' ya unique row index chahiye delete ke liye
         currentUserLogs.reverse().forEach((log, index) => {
           const li = document.createElement("li");
           li.className = "log-item";
@@ -651,36 +646,6 @@
       });
     }
 
-    // 🗑️ PARTICULAR LOG DELETE FUNCTION
-    function deleteLog(startTime, date) {
-      // SheetDB delete by column value
-      fetch(`https://sheetdb.io/api/v1/s11fx2no90dx0/StartTime/${startTime}`, {
-        method: 'DELETE',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        loadLogs(); // List refresh karein
-      })
-      .catch(error => console.error("Error deleting:", error));
-    }
-
-    // 🧹 CLEAR ALL LOGS (PARTICULAR USER KA)
-    
-        // Sabhi logs ko ek-ek karke delete karna padega
-        fetch('https://sheetdb.io/api/v1/s11fx2no90dx0')
-        .then(response => response.json())
-        .then(data => {
-            const userLogs = data.filter(log => log.UserAccount === activeUser);
-            userLogs.forEach(log => {
-                fetch(`https://sheetdb.io/api/v1/s11fx2no90dx0/StartTime/${log.StartTime}`, { method: 'DELETE' });
-            });
-            setTimeout(loadLogs, 1000); // Thodi der baad refresh
-        });
-
     // 🗑️ PARTICULAR LOG DELETE
     function deleteLog(startTime, date) {
       fetch(`https://sheetdb.io/api/v1/s11fx2no90dx0/StartTime/${encodeURIComponent(startTime)}`, {
@@ -697,7 +662,6 @@
       });
     }
     
-
     function toggleFullScreen() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
